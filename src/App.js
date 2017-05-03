@@ -21,6 +21,8 @@ class App extends Component {
       makeNumber              : dataConfig.makeNumber,
       splitter                : dataConfig.splitter,
       selectedCards           : [],
+      findAllMatchesResults   : {},
+      activeCards             : []
         }
       }
 
@@ -82,8 +84,34 @@ class App extends Component {
       )
     }
 
+  searched(input) {
+    let found = {}
+    if(!input.length) {
+      found = this.state.data
+    }
+    Object.keys(input).forEach(val => {
+      Object.keys(input[val]).forEach(back => {
+        found[back] = input[val][back]
+      })
+    })
+
+    let searched = Object.keys(found).map((location,i)=>{
+        let active =  this.state.activeCards[0]==i||this.state.activeCards[1]==i?"2px":"0px"
+        let info = this.state.data[location]
+        return(
+          <Card
+          active={active}
+          handleSelectCard={this.selectCard.bind(this)}
+          key={i}
+          index={i}
+          location= {location}
+          info={info} />
+        )
+      })
+      return searched
+    }
+
   render() {
-  let activeCards = []
   let tempArr = this.state.selectedCards
   let averageInfo = {}
     Object.keys(this.state.data).forEach((obj,i)=>{
@@ -92,7 +120,7 @@ class App extends Component {
           averageInfo.location1=tempArr[0].location
           averageInfo.info1=tempArr[0].info
 
-          activeCards.push(i)
+          this.state.activeCards.push(i)
         }
       }
 
@@ -100,7 +128,7 @@ class App extends Component {
           if(tempArr[1].location.toLowerCase()==obj.toLowerCase()){
             averageInfo.location2=tempArr[1].location
             averageInfo.info2=tempArr[1].info
-          activeCards.push(i)
+          this.state.activeCards.push(i)
           }
           }
         })
@@ -108,23 +136,14 @@ class App extends Component {
     return (
       <main className="main-container">
         <div>Welcome To Headcount 2.0</div>
-
         {this.renderComparision(averageInfo)}
+        <input placeholder="Search" onChange={(e) => {
+          this.state.findAllMatchesResults = this.state.findAllMatches(e.target.value)
+          this.setState(this.state.findAllMatchesResults)
+        }}/>
           <div className="card-container">
-        {
-          Object.keys(this.state.data).map((location,i)=>{
-           let active =  activeCards[0]==i||activeCards[1]==i?"2px":"0px"
-            let info = this.state.data[location]
-            return(
-              <Card
-              active={active}
-              handleSelectCard={this.selectCard.bind(this)}
-              key={i}
-              index={i}
-              location= {location}
-              info={info} />
-            )
-          })
+          {
+          this.searched(this.state.findAllMatchesResults)
         }
         </div>
       </main>
