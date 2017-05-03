@@ -1,0 +1,38 @@
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: cornsilk;
+}
+
+.comparision-cards{
+  width: 65%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.comparison-cards-container {
+  border: blue solid 2px;
+  width: 65%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.compare-info-container{
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+}
+
+.card-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: aliceblue;
+}
+
+
+.page-title{
+}

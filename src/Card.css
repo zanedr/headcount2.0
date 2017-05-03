@@ -1,0 +1,21 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width:150px;
+  padding:5px;
+}
+
+.card h3{
+  size:14px;
+}
+
+.card li{
+  list-style-type: none;
+}
+
+.card-data{
+display: flex;
+justify-content: space-between;
+width: 80%;
+}
