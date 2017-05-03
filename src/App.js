@@ -107,7 +107,7 @@ class App extends Component {
 
     return (
       <main className="main-container">
-        <div>Welcome To Headcount 2.0</div>
+        <div className="page-title">Welcome To Headcount 2.0</div>
 
         {this.renderComparision(averageInfo)}
           <div className="card-container">

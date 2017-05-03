@@ -7,7 +7,7 @@ export default class Card extends Component{
     <div className="card"
     style={{border: this.props.active+ ` blue solid` }}
     onClick={()=>{this.props.handleSelectCard(this.props.info,this.props.location)}}>
-      <h3>{this.props.location}</h3>
+      <h5>{this.props.location}</h5>
       {
         Object.keys(this.props.info).map((val,i)=>{
           let color;
@@ -21,7 +21,10 @@ export default class Card extends Component{
           style={{color: color }}
           className="card-data"
           key={i}
-          >{val} {this.props.info[val]}
+          ><div className="card-info-year">{val}</div>
+          <div className="card-info">
+          {this.props.info[val]}
+          </div>
           </li>
               )
         })
