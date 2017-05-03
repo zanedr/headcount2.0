@@ -22,7 +22,8 @@ class App extends Component {
       splitter                : dataConfig.splitter,
       selectedCards           : [],
       findAllMatchesResults   : {},
-      activeCards             : []
+      activeCards             : [],
+      query                   : ''
         }
       }
 
@@ -84,10 +85,13 @@ class App extends Component {
       )
     }
 
-  searched(input) {
+  searched(input, query) {
     let found = {}
-    if(!input.length) {
+    if (!input.length && !query) {
       found = this.state.data
+    }
+    else if(!input.length && query) {
+      return <h4>No results found</h4>
     }
     Object.keys(input).forEach(val => {
       Object.keys(input[val]).forEach(back => {
@@ -140,12 +144,13 @@ class App extends Component {
 
         {this.renderComparision(averageInfo)}
         <input placeholder="Search" onChange={(e) => {
+          this.state.query = e.target.value
           this.state.findAllMatchesResults = this.state.findAllMatches(e.target.value)
           this.setState(this.state.findAllMatchesResults)
         }}/>
           <div className="card-container">
           {
-          this.searched(this.state.findAllMatchesResults)
+          this.searched(this.state.findAllMatchesResults, this.state.query)
         }
         </div>
       </main>
