@@ -85,18 +85,17 @@ class App extends Component {
     }
 
   searched(input) {
-      // console.log('woah', input)
-      let found = {}
-      Object.keys(input).forEach(val => {
-        Object.keys(input[val]).forEach(back => {
-          found[back] = input[val][back]
-          console.log(back, input[val][back])
-        })
+    let found = {}
+    if(!input.length) {
+      found = this.state.data
+    }
+    Object.keys(input).forEach(val => {
+      Object.keys(input[val]).forEach(back => {
+        found[back] = input[val][back]
       })
-      // console.log(Object.keys(found))
+    })
 
     let searched = Object.keys(found).map((location,i)=>{
-        console.log(location)
         let active =  this.state.activeCards[0]==i||this.state.activeCards[1]==i?"2px":"0px"
         let info = this.state.data[location]
         return(
