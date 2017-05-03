@@ -21,7 +21,7 @@ export default class DistrictRepository {
        Object.keys(found.data).forEach(year=>{
         found.data[year]==="N/A"?
          found.data[year] = 0:
-         found.data[year] =    Number(found.data[year].toFixed(3))
+         found.data[year] = Number(found.data[year].toFixed(3))
 
        })
      }
