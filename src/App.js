@@ -3,7 +3,7 @@ import './App.css';
 import kinderData from '../data/kindergartners_in_full_day_program.js'
 import DistrictRepository from  './helper.js'
 import Card from "./Card"
-
+import css from "./App.css"
 
 class App extends Component {
   constructor() {
@@ -36,9 +36,13 @@ class App extends Component {
     }
 
     renderComparision(){
+      let tempArr = this.state.selectedCards
+
+
       return(
-        <div className="comparison-cards">
-        {this.state.selectedCards.map((info,i)=>{
+        <div className="comparison-cards-container">
+        {tempArr.map((info,i)=>{
+
           return (
               <Card
               active = {true}
@@ -56,16 +60,22 @@ class App extends Component {
 
   render() {
   let activeCards = []
+  let tempArr = this.state.selectedCards
+
     Object.keys(this.state.data).forEach((obj,i)=>{
-      if(this.state.selectedCards[0]){
-        if(this.state.selectedCards[0].location.toLowerCase()==obj.toLowerCase()
-        ||this.state.selectedCards[1].location.toLowerCase()==obj.toLowerCase()
-        ){
+      if(tempArr[0]){
+        if(tempArr[0].location.toLowerCase()==obj.toLowerCase()){
           activeCards.push(i)
-          console.log(activeCards)
         }
-    }
-    })
+      }
+
+        if(tempArr[1]){
+          if(tempArr[1].location.toLowerCase()==obj.toLowerCase()){
+          activeCards.push(i)
+          }
+          }
+        })
+
 
     return (
       <main className="main-container">
