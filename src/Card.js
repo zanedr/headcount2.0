@@ -10,8 +10,15 @@ export default class Card extends Component{
       <h3>{this.props.location}</h3>
       {
         Object.keys(this.props.info).map((val,i)=>{
+          let color;
+          if(this.props.info[val]>.5){
+            color = "blue"
+          }else{
+            color='red'
+          }
           return(
           <li
+          style={{color: color }}
           className="card-data"
           key={i}
           >{val} {this.props.info[val]}

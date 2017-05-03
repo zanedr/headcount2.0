@@ -13,6 +13,7 @@ body {
 .comparision-cards{
   width: 65%;
   display: flex;
+  justify-content: space-around;
 }
 
 
@@ -20,4 +21,12 @@ body {
   border: blue solid 2px;
   width: 65%;
   display: flex;
+  justify-content: space-around;
+}
+
+.compare-info-container{
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+
 }
