@@ -15,4 +15,9 @@ body {
   display: flex;
 }
 
-/*@import 'Card.css';*/
+
+.comparison-cards-container {
+  border: blue solid 2px;
+  width: 65%;
+  display: flex;
+}
