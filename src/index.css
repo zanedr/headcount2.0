@@ -3,3 +3,16 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comparision-cards{
+  width: 65%;
+  display: flex;
+}
+
+/*@import 'Card.css';*/
