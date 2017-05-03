@@ -24,6 +24,12 @@ class App extends Component {
       }
 
     selectCard(info,location){
+       if(this.state.selectedCards[1]) {
+         let presentLocation = this.state.selectedCards[1].location
+         if(location == presentLocation){
+           alert('Please choose a different card')
+         }
+       }
           let tempArr = this.state.selectedCards
           if(tempArr.length>=2){
             tempArr.shift()
@@ -82,7 +88,6 @@ class App extends Component {
         <div>Welcome To Headcount 2.0</div>
 
         {this.renderComparision()}
-
           <div className="card-container">
         {
           Object.keys(this.state.data).map((location,i)=>{
@@ -97,10 +102,8 @@ class App extends Component {
               location= {location}
               info={info} />
             )
-          }
-          )
+          })
         }
-
         </div>
       </main>
     )
