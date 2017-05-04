@@ -4,6 +4,7 @@ import kinderData from '../data/kindergartners_in_full_day_program.js'
 import DistrictRepository from  './helper.js'
 import Card from "./Card"
 import CompareCard from './CompareCard'
+import Search      from './Search'
 import css from "./App.css"
 
 class App extends Component {
@@ -23,9 +24,11 @@ class App extends Component {
       selectedCards           : [],
       findAllMatchesResults   : {},
       activeCards             : [],
-      query                   : ''
+      query                   : '',
+      Search                  :Search
         }
       }
+
 
     selectCard(info,location){
        if(this.state.selectedCards[1]) {
@@ -55,15 +58,12 @@ class App extends Component {
             let avg1 = this.state.findAverage(averageInfo.location1)
             let avg2 = this.state.findAverage(averageInfo.location2)
             let totalAvg = this.state.compareDistrictAverages(averageInfo.location1,averageInfo.location2)
-
-            console.log(totalAvg)
               return(
             <div className ="compare-info-container" >
               <CompareCard info={compareInfo} avg1={avg1} avg2={avg2} totalAvg={totalAvg}/ >
               <Card
-              active = {true}
+              active = {"0px"}
               handleSelectCard={this.selectCard.bind(this)}
-              key={i}
               index={i}
               location= {info.location}
               info={info.info} />
@@ -72,9 +72,8 @@ class App extends Component {
             }
           return (
               <Card
-              active = {true}
+              active = {"0px"}
               handleSelectCard={this.selectCard.bind(this)}
-              key={i}
               index={i}
               location= {info.location}
               info={info.info} />
@@ -85,8 +84,11 @@ class App extends Component {
       )
     }
 
+
+
   searched(input, query) {
     let found = {}
+    let active ;
     if (!input.length && !query) {
       found = this.state.data
     }
@@ -100,7 +102,12 @@ class App extends Component {
     })
 
     let searched = Object.keys(found).map((location,i)=>{
-        let active =  this.state.activeCards[0]==i||this.state.activeCards[1]==i?"2px":"0px"
+      if(this.state.selectedCards[0]){
+      active= this.state.selectedCards[0].location==location?"2px":"0px"
+    }
+      if(this.state.selectedCards[0]&&this.state.selectedCards[1]){
+        active = this.state.selectedCards[0].location==location||this.state.selectedCards[1].location==location?"2px":"0px"
+      }
         let info = this.state.data[location]
         return(
           <Card
@@ -123,7 +130,9 @@ class App extends Component {
         if(tempArr[0].location.toLowerCase()==obj.toLowerCase()){
           averageInfo.location1=tempArr[0].location
           averageInfo.info1=tempArr[0].info
-
+          if(this.state.activeCards.length==2){
+            this.state.activeCards.shift()
+          }
           this.state.activeCards.push(i)
         }
       }
@@ -132,9 +141,13 @@ class App extends Component {
           if(tempArr[1].location.toLowerCase()==obj.toLowerCase()){
             averageInfo.location2=tempArr[1].location
             averageInfo.info2=tempArr[1].info
-          this.state.activeCards.push(i)
+            if(this.state.activeCards.length==2){
+              this.state.activeCards.shift()
+            }
+            this.state.activeCards.push(i)
           }
           }
+
         })
 
     return (
