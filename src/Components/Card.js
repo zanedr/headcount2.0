@@ -52,6 +52,10 @@ Card.defaultProp ={
       }
 }
 
+
+
 Card.PropTypes ={
   location:PropTypes.string,
+  info: PropTypes.object,
+  handleSelectCard: PropTypes.func
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Card from './Card';
+import Card from '../Components/Card';
 import { shallow, mount } from 'enzyme';
-import kinderData from '../data/kindergartners_in_full_day_program.js'
-import DistrictRepository from  './helper.js'
+import kinderData from '../../data/kindergartners_in_full_day_program.js'
+import DistrictRepository from  '../helper.js'
 
 
 describe('Card', () => {
