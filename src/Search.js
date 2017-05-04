@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DistrictRepository from './helper'
-import Card from './Card'
+import Card from './Components/Card'
 
 
  const searchResults = (input) => {
