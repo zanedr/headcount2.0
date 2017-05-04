@@ -73,22 +73,25 @@ makeNumber(input) {
    data.forEach(val => {
      let { Location, TimeFrame, Data } = val
      if(!empty[Location]){
-       if(Data=='N/A'|| Data=='#DIV/0!'){
+       if(Data!==/\d/ig){
          Data = 0}
          if(Data==0 || Data==1){
            empty[Location] = {[TimeFrame]: Data}
          }else{
+           console.log(Data)
+
            empty[Location] = {[TimeFrame]: Data.toFixed(3)}
 
          }
 }
       else {
-       if(Data=='N/A'|| Data=='#DIV/0!'){
+       if(Data=='N/A'|| Data=='#DIV/0!'|| Data=="LNE"||Data=='#VALUE!'){
          Data = 0
        }
        if(Data==0||Data==1){
           var temp = {[TimeFrame]: Data}
        }else{
+         console.log(Data)
        var temp = {[TimeFrame]: Data.toFixed(3)}
      }
        empty[Location] = Object.assign(empty[Location], temp)

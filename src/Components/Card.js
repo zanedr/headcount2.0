@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 
 export default class Card extends Component{
   render(){
+
+    let active =  this.props.active?this.props.active:"red"
+
+
   return(
     <div className="card"
-    style={{border: this.props.active+ ` blue solid` }}
+    style={{border: active+ ` 2px solid` }}
     onClick={()=>{this.props.handleSelectCard(this.props.info,this.props.location)}}>
       <h5>{this.props.location}</h5>
       {
@@ -49,7 +53,8 @@ Card.defaultProp ={
         2012: 0.18691,
         2013: 0,
         2014: 0.12982
-      }
+      },
+  active:"blue"
 }
 
 
