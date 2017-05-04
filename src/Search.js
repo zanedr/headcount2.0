@@ -1,10 +1,11 @@
-// import React, { Component } from 'react'
+import React, { Component } from 'react'
 import DistrictRepository from './helper'
 import Card from './Card'
 
+
 export const searchResults = (input) => {
   const found = Object.keys(this.state.data).map((location,i)=>{
-    let active =  activeCards[0]==i||activeCards[1]==i?"2px":"0px"
+    let active =  this.state.activeCards[0]==i||this.state.activeCards[1]==i?"2px":"0px"
       let info = this.state.data[location]
       return(
         <Card

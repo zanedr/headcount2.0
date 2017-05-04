@@ -21,7 +21,7 @@ export default class DistrictRepository {
        Object.keys(found.data).forEach(year=>{
         found.data[year]==="N/A"?
          found.data[year] = 0:
-         found.data[year] = Number(found.data[year].toFixed(3))
+         found.data[year] = Number(found.data[year])
 
        })
      }
@@ -73,9 +73,24 @@ makeNumber(input) {
    data.forEach(val => {
      let { Location, TimeFrame, Data } = val
      if(!empty[Location]){
-       empty[Location] = {[TimeFrame]: Data}
-     } else {
-       let temp = {[TimeFrame]: Data}
+       if(Data=='N/A'|| Data=='#DIV/0!'){
+         Data = 0}
+         if(Data==0 || Data==1){
+           empty[Location] = {[TimeFrame]: Data}
+         }else{
+           empty[Location] = {[TimeFrame]: Data.toFixed(3)}
+
+         }
+}
+      else {
+       if(Data=='N/A'|| Data=='#DIV/0!'){
+         Data = 0
+       }
+       if(Data==0||Data==1){
+          var temp = {[TimeFrame]: Data}
+       }else{
+       var temp = {[TimeFrame]: Data.toFixed(3)}
+     }
        empty[Location] = Object.assign(empty[Location], temp)
      }
    })
