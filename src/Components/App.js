@@ -4,11 +4,14 @@ import DistrictRepository from  '../helper.js'
 import Card from "./Card"
 import CompareCard from './CompareCard'
 import Search      from '../Search'
+import dataSource  from '../dataSource'
+import thirdGrad from '../../data/3rd_grade_tests.js'
+
+//
 
 class App extends Component {
   constructor() {
     super()
-
     let dataConfig = new DistrictRepository(kinderData)
 
     this.state= {
@@ -25,15 +28,23 @@ class App extends Component {
       query                   : '',
       Search                  :Search
         }
+
+
       }
 
+    selectDataSource(input){
+      console.log(input)
+      let newDataConfig = new DistrictRepository(thirdGrad)
+        console.log(newDataConfig)
+      this.setState({data:newDataConfig.data})
+    }
 
     selectCard(info,location){
        if(this.state.selectedCards[1]) {
          let presentLocation = this.state.selectedCards[1].location
-         if(location == presentLocation){
-           alert('Please choose a different card')
-         }
+        //  if(location == presentLocation){
+        //    alert('Please choose a different card')
+        //  }
        }
           let tempArr = this.state.selectedCards
           if(tempArr.length>=2){
@@ -60,7 +71,7 @@ class App extends Component {
             <div className ="compare-info-container" >
               <CompareCard info={compareInfo} avg1={avg1} avg2={avg2} totalAvg={totalAvg}/ >
               <Card
-              active = {"0px"}
+              active = {"blue"}
               handleSelectCard={this.selectCard.bind(this)}
               index={i}
               location= {info.location}
@@ -70,7 +81,7 @@ class App extends Component {
             }
           return (
               <Card
-              active = {"0px"}
+              active = {"blue"}
               handleSelectCard={this.selectCard.bind(this)}
               index={i}
               location= {info.location}
@@ -101,10 +112,10 @@ class App extends Component {
 
     let searched = Object.keys(found).map((location,i)=>{
       if(this.state.selectedCards[0]){
-      active= this.state.selectedCards[0].location==location?"2px":"0px"
+      active= this.state.selectedCards[0].location==location?"blue":"red"
     }
       if(this.state.selectedCards[0]&&this.state.selectedCards[1]){
-        active = this.state.selectedCards[0].location==location||this.state.selectedCards[1].location==location?"2px":"0px"
+        active = this.state.selectedCards[0].location==location||this.state.selectedCards[1].location==location?"blue":"red"
       }
         let info = this.state.data[location]
         return(
@@ -159,6 +170,11 @@ class App extends Component {
           this.state.findAllMatchesResults = this.state.findAllMatches(e.target.value)
           this.setState(this.state.findAllMatchesResults)
         }}/>
+        <select onChange={(e)=>{this.selectDataSource(e.target.value)}}>
+          <option>Killa</option>
+          <option>woo</option>
+          <option>kinderData</option>
+        </select>
           <div className="card-container">
           {
           this.searched(this.state.findAllMatchesResults, this.state.query)
