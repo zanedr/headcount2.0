@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 
 
@@ -20,4 +21,12 @@ export default function compareCard({info,totalAvg,avg1,avg2}){
       </div>
     </div>
   )
+}
+
+
+compareCard.PropTypes ={
+  avg1: PropTypes.number,
+  avg2: PropTypes.number,
+  info: PropTypes.object,
+  totalAvg: PropTypes.object
 }
