@@ -8,20 +8,20 @@ import DistrictRepository from  './helper.js'
 
 describe('Card', () => {
     const configData = new DistrictRepository(kinderData)
-    const wrapper = shallow(<Card
-      active={"2px"}
+
+    const wrapper = shallow(<Card  active={"2px"}
       key={0}
       index={1}
-      location= {"devner"}
-      info={DistrictRepository} />)
-
+      location= {"denver"}
+      info={DistrictRepository}
+    />)
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Card
       active={"2px"}
       key={0}
       index={1}
-      location= {"devner"}
+      location= {"denver"}
       info={DistrictRepository} />, div);
   });
 
@@ -36,18 +36,38 @@ describe('Card', () => {
       active={"2px"}
       key={0}
       index={1}
-      location= {"devner"}
+      handleSelectCard={spy}
+      location= {"denver"}
       info={DistrictRepository}
       />)
 
-      console.log(wrapper.node.props)
+        wrapper.simulate('click')
 
-      // wrapper.find('.card').simulate('click');
-
-        // expect(spy).toBeCalled();
-
+        expect(spy).toBeCalled();
   })
 
+  it('should have default props',()=>{
+    expect(wrapper.unrendered.type.defaultProp.info,{
+      '2004': 0.39196,
+      '2005': 0,
+      '2006': 0,
+      '2007': 0,
+      '2008': 0.19264,
+      '2009': 0.19,
+      '2010': 0.19744,
+      '2011': 0.203,
+      '2012': 0.18691,
+      '2013': 0,
+      '2014': 0.12982 })
+
+    expect(wrapper.unrendered.type.defaultProp.location,'denver')
+  })
+
+  it('should be able to take props and utilize them',()=>{
+
+
+
+  })
 
 
 });
