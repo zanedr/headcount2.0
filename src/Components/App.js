@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
-import kinderData from '../data/kindergartners_in_full_day_program.js'
-import DistrictRepository from  './helper.js'
+import kinderData from '../../data/kindergartners_in_full_day_program.js'
+import DistrictRepository from  '../helper.js'
 import Card from "./Card"
 import CompareCard from './CompareCard'
-import Search      from './Search'
-import css from "./App.css"
+import Search      from '../Search'
 
 class App extends Component {
   constructor() {

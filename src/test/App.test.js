@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from '../Components/App';
 import { shallow, mount } from 'enzyme';
 
 
@@ -37,5 +37,6 @@ it('has a class',()=>{
   const wrapper = shallow(<App/>)
   console.log(wrapper)
 })
+
 
 });

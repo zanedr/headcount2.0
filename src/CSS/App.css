@@ -14,7 +14,8 @@
 
 .comparison-cards-container {
   border: blue solid 2px;
-  width: 65%;
+  width: 100%;
+  max-width: 600px;
   display: flex;
   justify-content: space-around;
 }
@@ -22,7 +23,7 @@
 .compare-info-container{
   display: flex;
   justify-content: space-between;
-  width: 55%;
+  width: 65%;
 }
 
 .card-container{
@@ -32,7 +33,23 @@
   flex-wrap: wrap;
   background-color: aliceblue;
 }
+.average-compare{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
 
-.page-title{
+@media (max-width: 500px)  {
+  .comparison-cards-container{
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .compare-info-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
 }
