@@ -9,7 +9,7 @@ export default class Card extends Component{
 
   return(
     <div className="card"
-    style={{border: active+ ` 2px solid` }}
+    style={{border: active+ ` 4px solid` }}
     onClick={()=>{this.props.handleSelectCard(this.props.info,this.props.location)}}>
       <h5>{this.props.location}</h5>
       {
