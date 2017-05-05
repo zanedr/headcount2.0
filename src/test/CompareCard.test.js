@@ -18,9 +18,21 @@ it('should have a class',()=>{
   expect(wrapper.is('.card')).toEqual(true);
 })
 
-it('should have a class',()=>{
-  console.log(wrapper)
-  expect(wrapper.is('.card')).toEqual(true);
+it('should have children elements',()=>{
+  const wrapper = mount(<CompareCard info={{location1:"Shenma",location2:"Gringo"}}
+  avg1={1} avg2={1} totalAvg={{}} />)
+  expect(wrapper.find('div').length).toEqual(5)
+})
+
+it('should be able to take props and utilize them',()=>{
+  const wrapper = mount(<CompareCard info={{location1:"Shenma",location2:"Gringo"}}
+  avg1={1} avg2={1} totalAvg={{}} />)
+
+
+  expect(wrapper.props()).toEqual({ info: { location1: 'Shenma', location2: 'Gringo' },
+      avg1: 1,
+      avg2: 1,
+      totalAvg: {} })
 })
 
 })

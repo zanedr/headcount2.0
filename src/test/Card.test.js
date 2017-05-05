@@ -47,7 +47,7 @@ describe('Card', () => {
   })
 
   it('should have default props',()=>{
-    expect(wrapper.unrendered.type.defaultProp.info,{
+    expect(wrapper.unrendered.type.defaultProp.info).toEqual({
       '2004': 0.39196,
       '2005': 0,
       '2006': 0,
@@ -60,11 +60,21 @@ describe('Card', () => {
       '2013': 0,
       '2014': 0.12982 })
 
-    expect(wrapper.unrendered.type.defaultProp.location,'denver')
+    expect(wrapper.unrendered.type.defaultProp.location).toEqual("Denver")
   })
 
   it('should be able to take props and utilize them',()=>{
+    const wrapper =  mount(<Card  active={"2px"}
+      key={0}
+      index={1}
+      location= {"Yuma"}
+      info={DistrictRepository}
+    />)
 
+    expect(wrapper.props()).toEqual({ active: '2px',
+      index: 1,
+      location: 'Yuma',
+      info: DistrictRepository })
 
 
   })

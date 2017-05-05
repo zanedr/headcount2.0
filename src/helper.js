@@ -91,7 +91,6 @@ makeNumber(input) {
        if(Data==0||Data==1){
           var temp = {[TimeFrame]: Data}
        }else{
-         console.log(Data)
        var temp = {[TimeFrame]: Data.toFixed(3)}
      }
        empty[Location] = Object.assign(empty[Location], temp)
