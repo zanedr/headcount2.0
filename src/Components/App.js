@@ -34,7 +34,7 @@ class App extends Component {
   selectDataSource(input){
     let newData = dataSource(input)
     let newDataConfig = new DistrictRepository(newData)
-    this.setState({data:newDataConfig.data})
+    this.setState({data:newDataConfig.data, selectedCards:[],activeCards:[]})
   }
 
   selectCard(info,location){
@@ -182,7 +182,9 @@ class App extends Component {
 
   render() {
     let averageInfo = {}
+
     averageInfo = this.renderSelectedCards(averageInfo)
+    console.log(averageInfo)
 
     return (
       <main className="main-container">
