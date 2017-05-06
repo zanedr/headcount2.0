@@ -35,4 +35,15 @@ it('should be able to take props and utilize them',()=>{
       totalAvg: {} })
 })
 
+it('can be clicked',()=>{
+  const spy = jest.fn();
+  const wrapper = shallow(<CompareCard info={{location1:"Denver",location2:"Yuma"}}
+  avg1={1} avg2={1} totalAvg={{}} />)
+
+      wrapper.simulate('click')
+
+      expect(spy).toBeCalled();
+})
+
+
 })
