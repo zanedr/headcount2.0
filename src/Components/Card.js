@@ -12,6 +12,7 @@ export default class Card extends Component{
     style={{border: active+ ` 4px solid` }}
     onClick={()=>{this.props.handleSelectCard(this.props.info,this.props.location)}}>
       <h5>{this.props.location}</h5>
+      <h5>Average:{this.props.average}</h5>
       {
         Object.keys(this.props.info).map((val,i)=>{
           let color;

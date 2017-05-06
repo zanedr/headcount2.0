@@ -4,13 +4,12 @@
   border-radius: 20px;
   margin: 5px 5px 5px;
   align-items: flex-start;
-  width:150px;
+  width:190px;
   padding:5px;
   background-color: rgba(245,285,160,.9);
 }
 
 .card h5{
-  size:16px;
   font-weight: 400;
   text-decoration: underline
 }

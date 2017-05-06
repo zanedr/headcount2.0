@@ -9,7 +9,7 @@ import DistrictRepository from  '../helper.js'
 describe('Card', () => {
     const configData = new DistrictRepository(kinderData)
 
-    const wrapper = shallow(<Card  active={"2px"}
+    const wrapper = shallow(<Card  active={"blue"}
       key={0}
       index={1}
       location= {"denver"}

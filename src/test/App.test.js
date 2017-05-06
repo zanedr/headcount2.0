@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../Components/App';
@@ -41,12 +42,13 @@ it('has state',()=>{
 
 })
 
-it('has state that can change via its children elements',()=>{
+it('after cards are clicked, it will be added to the state',()=>{
   const wrapper = mount(<App />)
   const spy = jest.fn();
   expect(wrapper.state().selectedCards).toEqual([])
   let Card1 = wrapper.find('.card').first()
   Card1.simulate('click')
+
   let expectedState =  [{"info": {"2004": "0.240", "2005": "0.278", "2006": "0.337", "2007": 0, "2008": "0.536", "2009": "0.598", "2010": "0.640", "2011": "0.672", "2012": "0.695", "2013": "0.703", "2014": "0.741"}, "location": "Colorado"}]
 
   let Card2 = wrapper.find('.card').last()
@@ -66,16 +68,6 @@ expect(wrapper.state().findAllMatches().length).toEqual(181)
 expect(wrapper.state().findAllMatches("colorado").length).toEqual(2)
 })
 
-
-////still need to work out last test
-it('should render a comparision card after two cards have been selected',()=>{
-const wrapper = mount(<App/>)
-let Card2 = wrapper.find('.card').last()
-let Card1 = wrapper.find('.card').first()
-Card1.simulate('click')
-Card2.simulate('click')
-    console.log(wrapper.find('CompareCard'))
-})
 
 
 

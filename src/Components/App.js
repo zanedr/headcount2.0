@@ -6,9 +6,7 @@ import Card from "./Card"
 import CompareCard from './CompareCard'
 import Search      from '../Search'
 import dataSource  from '../dataSource'
-import thirdGrad from '../../data/3rd_grade_tests.js'
-
-//
+import OptionsList from './OptionsList'
 
 class App extends Component {
   constructor() {
@@ -34,13 +32,13 @@ class App extends Component {
       }
 
   selectDataSource(input){
-    let newDataConfig = new DistrictRepository(thirdGrad)
+    let newData = dataSource(input)
+    let newDataConfig = new DistrictRepository(newData)
     this.setState({data:newDataConfig.data})
   }
 
   selectCard(info,location){
       if(this.state.selectedCards.length==1){
-
     if(this.state.selectedCards[0].location==location){
       this.setState({selectedCards:[]})
       return
@@ -90,6 +88,7 @@ class App extends Component {
                 <CompareCard info={compareInfo} avg1={avg1} avg2={avg2} totalAvg={totalAvg}/ >
                 <Card
                   active = {"blue"}
+                  key={i}
                   handleSelectCard={this.selectCard.bind(this)}
                   index={i}
                   location= {info.location}
@@ -99,6 +98,7 @@ class App extends Component {
           }
         return (
             <Card
+            key={i}
             active = {"blue"}
             handleSelectCard={this.selectCard.bind(this)}
             index={i}
@@ -128,8 +128,9 @@ class App extends Component {
   }
 
   searchRender(found){
-    let active
+    let active;
     let searched = Object.keys(found).map((location,i) => {
+
       if (this.state.selectedCards[0]) {
         active = this.state.selectedCards[0].location == location ? "blue":"red"
       }
@@ -137,8 +138,10 @@ class App extends Component {
         active = this.state.selectedCards[0].location == location || this.state.selectedCards[1].location == location ? "blue":"red"
       }
         let info = this.state.data[location]
+        let average = this.state.findAverage(location)
         return (
           <Card
+            average={average}
             active={active}
             handleSelectCard={this.selectCard.bind(this)}
             key={i}
@@ -193,11 +196,8 @@ class App extends Component {
           this.setState(this.state.findAllMatchesResults)
         }}/>
 
-        <select onChange = {(e) => {this.selectDataSource(e.target.value)}}>
-          <option>Killa</option>
-          <option>woo</option>
-          <option>kinderData</option>
-        </select>
+        <OptionsList selectDataSource={this.selectDataSource.bind(this)}/>
+
           <div className="card-container">
         {
         this.searched(this.state.findAllMatchesResults, this.state.query)
