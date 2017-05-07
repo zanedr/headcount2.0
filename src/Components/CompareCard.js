@@ -7,7 +7,7 @@ export default function compareCard({info,totalAvg,avg1,avg2}){
   return(
     <div className ='average-compare'>
       <div className = 'top-of-card'>
-      <h3>{info.location1} average</h3>
+      <h3>{info.location1} Average:</h3>
       <p>{avg1}</p>
       </div>
       <div className="middle-of-card">
@@ -15,7 +15,7 @@ export default function compareCard({info,totalAvg,avg1,avg2}){
       {'<<'}  {totalAvg.compared}  {'>>'}
       </div>
       <div className = 'bottom-of-card'>
-      <h3>{info.location2}</h3>
+      <h3>{info.location2} Average:</h3>
       <p>{avg2}</p>
 
       </div>

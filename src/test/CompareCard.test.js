@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CompareCard from '../Components/Card';
+import CompareCard from '../Components/CompareCard';
 import { shallow, mount } from 'enzyme';
 
 describe("CompareCard",()=>{
@@ -34,5 +34,16 @@ it('should be able to take props and utilize them',()=>{
       avg2: 1,
       totalAvg: {} })
 })
+
+it('can be clicked',()=>{
+  const spy = jest.fn();
+  const wrapper = shallow(<CompareCard info={{location1:"Denver",location2:"Yuma"}}
+  avg1={1} avg2={1} totalAvg={{}} />)
+
+      wrapper.simulate('click')
+
+      expect(spy).toBeCalled();
+})
+
 
 })

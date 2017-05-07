@@ -2,6 +2,11 @@ import React,{Component} from 'react'
 import PropTypes from 'prop-types';
 
 export default class Card extends Component{
+
+  shouldComponentUpdate(nextProps, nextState){
+    return (this.props.active !== nextProps.active  || this.props.average !==nextProps.average)? true:false;
+   }
+
   render(){
 
     let active =  this.props.active?this.props.active:"red"
@@ -12,14 +17,11 @@ export default class Card extends Component{
     style={{border: active+ ` 4px solid` }}
     onClick={()=>{this.props.handleSelectCard(this.props.info,this.props.location)}}>
       <h5>{this.props.location}</h5>
+      <h5>Average:{this.props.average}</h5>
       {
         Object.keys(this.props.info).map((val,i)=>{
-          let color;
-          if(this.props.info[val]>.5){
-            color = "blue"
-          }else{
-            color='red'
-          }
+          let color = this.props.info[val]>.5?"blue":'red'
+          
           return(
           <li
           style={{color: color }}
