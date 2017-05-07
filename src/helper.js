@@ -51,7 +51,7 @@ findAverage(name) {
   let total = Object.keys(leveller.data).reduce((acc, val) => {
     return acc += leveller.data[val]
   }, 0)
-  return this.makeNumber((total / divider).toFixed(3))
+  return this.makeNumber((total / divider).toFixed(2))
 }
 
 compareDistrictAverages(nameOne, nameTwo) {
@@ -59,7 +59,7 @@ compareDistrictAverages(nameOne, nameTwo) {
   let second = this.findAverage(nameTwo)
   return {[nameOne.toUpperCase()]: first,
           [nameTwo.toUpperCase()]: second,
-          'compared': this.makeNumber((first / second).toFixed(3))}
+          'compared': this.makeNumber((first / second).toFixed(2))}
 }
 
 makeNumber(input) {
@@ -70,7 +70,6 @@ makeNumber(input) {
 
  splitter(data) {
    let empty = {}
-   console.log("hit")
    data.forEach(val => {
      let { Location, TimeFrame, Data } = val
      if(!empty[Location]){
@@ -80,7 +79,7 @@ makeNumber(input) {
            empty[Location] = {[TimeFrame]: Data}
          }else{
 
-           empty[Location] = {[TimeFrame]: Data.toFixed(3)}
+           empty[Location] = {[TimeFrame]: Data.toFixed(2)}
 
          }
 }
@@ -91,7 +90,7 @@ makeNumber(input) {
        if(Data==0||Data==1){
           var temp = {[TimeFrame]: Data}
        }else{
-       var temp = {[TimeFrame]: Data.toFixed(3)}
+       var temp = {[TimeFrame]: Data.toFixed(2)}
      }
        empty[Location] = Object.assign(empty[Location], temp)
      }

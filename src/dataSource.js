@@ -39,7 +39,7 @@ function dataSource(input){
         return thirdGrade
       }
 
-      case 'Average  math scores race by ethnicity':{
+      case 'Average math scores race by ethnicity':{
 
         return avgRaceMath
       }

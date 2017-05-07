@@ -23,7 +23,6 @@ class App extends Component {
       splitter                : dataConfig.splitter,
       selectedCards           : [],
       findAllMatchesResults   : {},
-      activeCards             : [],
       query                   : '',
       Search                  :Search
         }
@@ -74,7 +73,6 @@ class App extends Component {
 
   renderComparision(averageInfo){
     let tempArr = this.state.selectedCards
-    let compareInfo = averageInfo
     return(
       <div className="comparison-cards-container">
       {tempArr.map((info,i)=>{
@@ -85,7 +83,7 @@ class App extends Component {
 
             return(
               <div className ="compare-info-container" >
-                <CompareCard info={compareInfo} avg1={avg1} avg2={avg2} totalAvg={totalAvg}/ >
+                <CompareCard info={averageInfo} avg1={avg1} avg2={avg2} totalAvg={totalAvg}/ >
                 <Card
                   active = {"blue"}
                   key={i}
@@ -131,7 +129,7 @@ class App extends Component {
     let active;
     let searched = Object.keys(found).map((location,i) => {
 
-      if (this.state.selectedCards[0]) {
+      if (this.state.selectedCards[0] && !this.state.selectedCards[1]) {
         active = this.state.selectedCards[0].location == location ? "blue":"red"
       }
       if (this.state.selectedCards[0] && this.state.selectedCards[1]) {
@@ -160,20 +158,13 @@ class App extends Component {
           if(tempArr[0].location.toLowerCase() == obj.toLowerCase()){
             averageInfo.location1=tempArr[0].location
             averageInfo.info1=tempArr[0].info
-            if (this.state.activeCards.length == 2){
-              this.state.activeCards.shift()
-            }
-            this.state.activeCards.push(i)
+
           }
         }
         if (tempArr[1]) {
           if (tempArr[1].location.toLowerCase() == obj.toLowerCase()) {
             averageInfo.location2 = tempArr[1].location
             averageInfo.info2 = tempArr[1].info
-            if (this.state.activeCards.length == 2){
-              this.state.activeCards.shift()
-            }
-            this.state.activeCards.push(i)
           }
         }
       })
@@ -181,10 +172,8 @@ class App extends Component {
   }
 
   render() {
-    let averageInfo = {}
-
-    averageInfo = this.renderSelectedCards(averageInfo)
-    console.log(averageInfo)
+    let average = {}
+    let averageInfo = this.renderSelectedCards(average)
 
     return (
       <main className="main-container">

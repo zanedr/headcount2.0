@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CompareCard from '../Components/Card';
+import CompareCard from '../Components/CompareCard';
 import { shallow, mount } from 'enzyme';
 
 describe("CompareCard",()=>{

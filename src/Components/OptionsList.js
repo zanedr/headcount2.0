@@ -10,7 +10,7 @@ return(
   <option>{"Average reading scores"}</option>
   <option>{"Average writing scores"}</option>
   <option>{"Highschool graduation rates"}</option>
-  <option>{"Kindergarners in full day program"}</option>
+  <option selected={true}>{"Kindergarners in full day program"}</option>
   <option>{"Online student enrollment"}</option>
   <option>{"Enrollment by race"}</option>
 
