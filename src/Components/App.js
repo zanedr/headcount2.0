@@ -26,8 +26,6 @@ class App extends Component {
       query                   : '',
       Search                  :Search
         }
-
-
       }
 
   selectDataSource(input){
