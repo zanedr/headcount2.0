@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class Card extends Component{
   render(){
 
-    let active =  this.props.active?this.props.active:"#1D5442"
+    let active =  this.props.active ? this.props.active:"#1D5442"
 
 
   return(
