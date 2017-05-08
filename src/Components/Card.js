@@ -16,19 +16,20 @@ export default class Card extends Component{
       <ul>
       {
         Object.keys(this.props.info).map((val,i) => {
-          let color = this.props.info[val] > .5 ? "#FF0000" : "#1D5442"
+          let color = this.props.info[val] > .5 ? "#1D5442" : "#FF0000"
 
           return (
             <li
-            style={{color: color,  }}
-            className="card-data"
-            key={i}
-            ><div className="card-info-year">{val}</div>
-            <div className="card-info">
-            {this.props.info[val]}
-            </div>
+            style = {{color: color,  }}
+            className = "card-data"
+            key = {i}
+            >
+              <div className = "card-info-year">{val}</div>
+              <div className = "card-info">
+                {this.props.info[val]}
+              </div>
             </li>
-              )
+          )
         })
       }
       </ul>
@@ -56,7 +57,7 @@ Card.defaultProp = {
   active:"#FF0000"
 }
 
-Card.PropTypes ={
+Card.PropTypes = {
   location:PropTypes.string,
   info: PropTypes.object,
   handleSelectCard: PropTypes.func

@@ -24,17 +24,17 @@ class App extends Component {
       selectedCards           : [],
       findAllMatchesResults   : {},
       query                   : '',
-      Search                  :Search
+      Search                  : Search
         }
       }
 
-  selectDataSource(input){
+  selectDataSource(input) {
     let newData = dataSource(input)
     let newDataConfig = new DistrictRepository(newData)
     this.setState({data:newDataConfig.data, selectedCards:[],activeCards:[]})
   }
 
-  selectCard(info,location){
+  selectCard(info,location) {
     if(this.state.selectedCards.length == 1 &&
        this.state.selectedCards[0].location == location){
       this.setState({selectedCards:[]})
@@ -69,7 +69,7 @@ class App extends Component {
     }
   }
 
-  renderComparision(averageInfo){
+  renderComparision(averageInfo) {
     let tempArr = this.state.selectedCards
     return(
       <div className = "comparison-cards-container">
@@ -128,7 +128,7 @@ class App extends Component {
     return this.searchRender(found)
   }
 
-  searchRender(found){
+  searchRender(found) {
     let active;
     let searched = Object.keys(found).map((location,i) => {
 
