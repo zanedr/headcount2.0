@@ -17,18 +17,11 @@
   margin-top: 10px;
   font-weight: 100;
   font-size: 24px;
-  background-color: #000;
+  background-color: #000000;
   border-radius: 10px;
-  color: #fff;
+  color: #FFFFFF;
   padding: 10px;
 }
-
-/*.comparision-cards{
->>>>>>> de013451092a2ff54d1b024c9a1b128676698660
-  width: 65%;
-  display: flex;
-  justify-content: space-around;
-}*/
 
 .comparison-cards-container {
   width: 100%;
@@ -38,21 +31,11 @@
   font-weight: 200;
 }
 
-/*.comparison-cards-container h3{
-  font-weight: 400;
-  margin-bottom: 0;
-  margin-top: 30px;
-}
-
-.compare-info-container h4 {
-  margin-top: 0;
-}*/
-
 .compare-info-container {
   color: #FFFFFF;
   display: flex;
   justify-content: space-between;
-  width: 65%;
+  width: 67.5%;
   text-align: center;
 }
 
@@ -62,7 +45,7 @@
   width: 80%;
 }
 
-.card-container{
+.card-container {
   /*background-image: url('./i.jpg');*/
   background-color: #FFFFFF;
   background-size: contain;
@@ -75,7 +58,7 @@
   width: 100%;
 }
 
-.average-compare{
+.average-compare {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -83,20 +66,24 @@
   width: 250px;
 }
 
-input, select{
+input, select {
   width:230px;
   height:35px;
   margin: 10px 0px;
 }
 
-.average-compare h3{
+.average-compare h3 {
   font-weight: 400;
   margin-bottom: 5px;
   margin-top: 30px;
 }
 
-.average-compare h3.bottom{
-  margin-top: 25px;
+.average-compare h3.bottom {
+  margin-top: 5px;
+}
+
+.average-compare p {
+  margin-bottom: 20px;
 }
 
 .search-input {
@@ -105,13 +92,13 @@ input, select{
 }
 
 @media (max-width: 550px)  {
-  .comparison-cards-container{
+  .comparison-cards-container {
     flex-direction: column;
     align-items: center;
     font-size: 18px;
   }
 
-  .compare-info-container{
+  .compare-info-container {
     flex-direction: column;
     align-items: center;
   }
