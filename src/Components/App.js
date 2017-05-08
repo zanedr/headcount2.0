@@ -182,6 +182,7 @@ class App extends Component {
     return(
       <main className = "main-container">
         <div className = "page-title">Headcount 2.0</div>
+        <p className="subtitle">Twice as heady as 1.0</p>
 
         {this.renderComparision(averageInfo)}
         <input className = "search-input" placeholder = "Search by county" onChange = {(e) => {

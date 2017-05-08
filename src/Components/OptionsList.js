@@ -11,7 +11,6 @@ function OptionsList ({selectDataSource}){
       <option>{"Highschool graduation rates"}</option>
       <option selected={true}>{"Kindergarners in full day program"}</option>
       <option>{"Remediation in higher education"}</option>
-      <option>{"School aged children in poverty"}</option>
       <option>{"Special education"}</option>
     </select>
   )
