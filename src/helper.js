@@ -63,7 +63,7 @@ export default class DistrictRepository {
 
     return {[nameOne.toUpperCase()]: first,
           [nameTwo.toUpperCase()]: second,
-          'compared': this.makeNumber((first / second).toFixed(2))}
+          'compared': this.makeNumber((first / second).toFixed(3))}
   }
 
   makeNumber(input) {
@@ -85,7 +85,7 @@ export default class DistrictRepository {
           empty[Location] = {[TimeFrame]: Data}
         } else {
 
-          empty[Location] = {[TimeFrame]: Data.toFixed(2)}
+          empty[Location] = {[TimeFrame]: Data.toFixed(3)}
         }
       }
       else {
@@ -95,7 +95,7 @@ export default class DistrictRepository {
         if (Data===0||Data===1) {
           var temp = {[TimeFrame]: Data}
         } else {
-           temp = {[TimeFrame]: Data.toFixed(2)}
+           temp = {[TimeFrame]: Data.toFixed(3)}
         }
         empty[Location] = Object.assign(empty[Location], temp)
       }

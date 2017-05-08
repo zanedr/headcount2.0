@@ -1,6 +1,6 @@
 import avgRaceMath from '../data/average_race_ethnicity_math_scores.js'
 
-import thirdGrade from '../data/3rd_grade_tests.js'
+// import thirdGrade from '../data/3rd_grade_tests.js'
 
 import eighthGrade from '../data/8th_grade_test_scores.js'
 
@@ -34,10 +34,10 @@ import specialEducation from '../data/special_education.js'
 
 function dataSource(input){
     switch(input){
-
-      case "3rd grade test scores":{
-        return thirdGrade
-      }
+      //
+      // case "3rd grade test scores":{
+      //   return thirdGrade
+      // }
 
       case 'Average math scores race by ethnicity':{
 
@@ -71,7 +71,7 @@ function dataSource(input){
       // case 'Median house income':{
       //   return medianHouseIncome
       // }
-      // 
+      //
       // case 'Online student enrollment':{
       //   return onlineEnroll
       // }

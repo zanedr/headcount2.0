@@ -13,7 +13,7 @@ describe('OptionsList',()=>{
 
   it('should contain option elements',()=>{
     const wrapper = mount(<OptionsList />)
-    expect(wrapper.find('option').length).toEqual(12)
+    expect(wrapper.find('option').length).toEqual(9)
   })
 
   it("should activate a onChange if a new option is selected",()=>{

@@ -16,13 +16,13 @@ it('renders without crashing', () => {
 it('should have a class',()=>{
   const wrapper = shallow(<CompareCard info={{location1:"Denver",location2:"Yuma"}}
   avg1={1} avg2={1} totalAvg={{}} />)
-  expect(wrapper.is('.card')).toEqual(true);
+  expect(wrapper.is('.average-compare')).toEqual(true);
 })
 
 it('should have children elements',()=>{
   const wrapper = mount(<CompareCard info={{location1:"Shenma",location2:"Gringo"}}
   avg1={1} avg2={1} totalAvg={{}} />)
-  expect(wrapper.find('div').length).toEqual(5)
+  expect(wrapper.find('div').length).toEqual(4)
 })
 
 it('should be able to take props and utilize them',()=>{
@@ -35,16 +35,5 @@ it('should be able to take props and utilize them',()=>{
       avg2: 1,
       totalAvg: {} })
 })
-
-it('can be clicked',()=>{
-  const spy = jest.fn();
-  const wrapper = shallow(<CompareCard info={{location1:"Denver",location2:"Yuma"}}
-  avg1={1} avg2={1} totalAvg={{}} />)
-
-      wrapper.simulate('click')
-
-      expect(spy).toBeCalled();
-})
-
 
 })
