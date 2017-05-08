@@ -10,11 +10,17 @@
   background-color: rgba(245,285,160,.9);
 }
 
+.card:hover {
+  background-color: #FFFFFF;
+  transition-duration: 0.2s;
+}
+
 .card h5 {
   size:16px;
   font-weight: 400;
   color: #000000;
   margin-bottom: 5px;
+  margin-left: 5px;
   text-decoration: underline;
 }
 

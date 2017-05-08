@@ -13,6 +13,11 @@
   margin-top: 20px;
 }
 
+.subtitle {
+  color: #FFFFFF;
+  margin-top: -12px;
+}
+
 .comparision-cards {
   margin-top: 10px;
   font-weight: 100;
@@ -88,7 +93,7 @@ input, select {
 
 .search-input {
   margin: 20px auto 10px;
-  width: 221px;
+  width: 227px;
 }
 
 @media (max-width: 550px)  {
