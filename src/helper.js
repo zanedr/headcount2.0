@@ -1,13 +1,13 @@
 export default class DistrictRepository {
- constructor(data) {
-   this.data           = this.splitter(data)
-   this.findByName     = this.findByName
-   this.findAllMatches = this.findAllMatches
-   this.findAverage    =   this.findAverage
-   this.compareDistrictAverages =this.compareDistrictAverages
-   this.makeNumber    = this.makeNumber
-   this.splitter      =this.splitter
- }
+  constructor(data) {
+    this.data           = this.splitter(data)
+    this.findByName     = this.findByName
+    this.findAllMatches = this.findAllMatches
+    this.findAverage    =   this.findAverage
+    this.compareDistrictAverages =this.compareDistrictAverages
+    this.makeNumber    = this.makeNumber
+    this.splitter      =this.splitter
+  }
 
   findByName(name) {
     let found = {}
@@ -95,7 +95,7 @@ export default class DistrictRepository {
         if (Data===0||Data===1) {
           var temp = {[TimeFrame]: Data}
         } else {
-           temp = {[TimeFrame]: Data.toFixed(3)}
+          temp = {[TimeFrame]: Data.toFixed(3)}
         }
         empty[Location] = Object.assign(empty[Location], temp)
       }
