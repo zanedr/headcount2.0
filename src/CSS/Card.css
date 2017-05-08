@@ -1,24 +1,27 @@
+
 .card{
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  margin: 30px 20px 5px;
+  margin: 5px 5px 5px;
   align-items: flex-start;
-  width:240px;
-  padding:5px;
-  background-color: rgba(245,285,302,.9);
-  align-items: center;
+  width:150px;
+  padding: 5px 5px 20px 5px;
+  background-color: rgba(245,285,160,.9);
 }
 
 .card h5{
-  font-weight: 300;
-font-size: 18px;
+  size:16px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 5px;
+  text-decoration: underline;
 }
 
 .card ul {
   width: 100%;
   padding: 10px;
-  background-color: #000;
+  background-color: transparent;
   border-radius: 10px;
 }
 
@@ -26,9 +29,11 @@ font-size: 18px;
   list-style-type: none;
   padding: 3px;
   color:#fff;
+  width: 100%;
 }
 
 .card-data{
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }

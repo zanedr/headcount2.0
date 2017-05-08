@@ -2,27 +2,25 @@ import React,{Component} from 'react'
 import PropTypes from 'prop-types';
 
 export default class Card extends Component{
-
-
   render(){
 
-    let active =  this.props.active?this.props.active:"red"
+    let active =  this.props.active?this.props.active:"#1D5442"
 
 
   return(
     <div className="card"
-    style={{border: active+ ` 4px solid` }}
-    onClick={()=>{this.props.handleSelectCard(this.props.info,this.props.location)}}>
+    style = {{border: active+ ` 4px solid` }}
+    onClick={() => {this.props.handleSelectCard(this.props.info,this.props.location)}}>
       <h5>{this.props.location}</h5>
       <h5>Average:{this.props.average}</h5>
       <ul>
       {
-        Object.keys(this.props.info).map((val,i)=>{
-          let color = this.props.info[val]>.5?"blue":'red'
+        Object.keys(this.props.info).map((val,i) => {
+          let color = this.props.info[val] > .5 ? "#FF0000" : "#1D5442"
 
           return(
           <li
-          style={{backgroundColor: color,  }}
+          style={{color: color,  }}
           className="card-data"
           key={i}
           ><div className="card-info-year">{val}</div>
@@ -55,10 +53,8 @@ Card.defaultProp ={
         2013: 0,
         2014: 0.12982
       },
-  active:"blue"
+  active:"#FF0000"
 }
-
-
 
 Card.PropTypes ={
   location:PropTypes.string,
