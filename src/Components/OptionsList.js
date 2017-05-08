@@ -4,7 +4,6 @@ function OptionsList ({selectDataSource}){
 
 return(
 <select onChange={(e) =>{selectDataSource(e.target.value)}}>
-  <option>{"3rd grade test scores"}</option>
   <option>{'Average  math scores race by ethnicity'}</option>
   <option>{"Eigth graded test scores"}</option>
   <option>{"Average reading scores"}</option>

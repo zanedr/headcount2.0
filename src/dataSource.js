@@ -1,6 +1,6 @@
 import avgRaceMath from '../data/average_race_ethnicity_math_scores.js'
 
-import thirdGrade from '../data/3rd_grade_tests.js'
+// import thirdGrade from '../data/3rd_grade_tests.js'
 
 import eighthGrade from '../data/8th_grade_test_scores.js'
 
@@ -32,82 +32,82 @@ import specialEducation from '../data/special_education.js'
 
 // import titleI    from '../data/students_qualifying_for_free_or_reduced_price_lunch.js'
 
-function dataSource(input){
-    switch(input){
+function dataSource(input) {
+  switch (input) {
 
-      case "3rd grade test scores":{
-        return thirdGrade
-      }
-
-      case 'Average math scores race by ethnicity':{
-
-        return avgRaceMath
-      }
-
-      case "Eigth graded test scores":{
-        return eighthGrade
-      }
-
-      case 'Average reading scores':{
-        return avgRaceReading
-      }
-
-      case 'Average writing scores':{
-        return avgRaceWriting
-      }
-
-      // case 'dropoutByRace':{
-      //   return dropoutByRace
+      // case "3rd grade test scores":{
+      //   return thirdGrade
       // }
 
-      case 'Highschool graduation rates':{
-        return highschoolGradRate
-      }
+  case 'Average math scores race by ethnicity': {
 
-      case 'Kindergarners in full day program':{
-        return kinderData
-      }
-
-      // case 'Median house income':{
-      //   return medianHouseIncome
-      // }
-      // 
-      // case 'Online student enrollment':{
-      //   return onlineEnroll
-      // }
-      //
-      // case 'Enrollment by race':{
-      //   return enrollByRace
-      // }
-
-
-
-      case 'Remediation in higher education':{
-        return remediationHigh
-      }
-
-      case 'School aged children in poverty':{
-        return childrenInPov
-      }
-
-      case 'Special education':{
-        return specialEducation
-      }
-
-      // case 'freeReducedLuch':{
-      //   return freeReducedLuch
-      // }
-
-      // case 'titleI':{
-      //   return titleI
-      // }
-
-      default:
-      return kinderData
-      }
-
-
+    return avgRaceMath
   }
+
+  case "Eigth graded test scores": {
+    return eighthGrade
+  }
+
+  case 'Average reading scores': {
+    return avgRaceReading
+  }
+
+  case 'Average writing scores': {
+    return avgRaceWriting
+  }
+
+  // case 'dropoutByRace':{
+  //   return dropoutByRace
+  // }
+
+  case 'Highschool graduation rates': {
+    return highschoolGradRate
+  }
+
+  case 'Kindergarners in full day program': {
+    return kinderData
+  }
+
+  // case 'Median house income':{
+  //   return medianHouseIncome
+  // }
+  //
+  // case 'Online student enrollment':{
+  //   return onlineEnroll
+  // }
+  //
+  // case 'Enrollment by race':{
+  //   return enrollByRace
+  // }
+
+
+
+  case 'Remediation in higher education': {
+    return remediationHigh
+  }
+
+  case 'School aged children in poverty': {
+    return childrenInPov
+  }
+
+  case 'Special education': {
+    return specialEducation
+  }
+
+  // case 'freeReducedLuch':{
+  //   return freeReducedLuch
+  // }
+
+  // case 'titleI':{
+  //   return titleI
+  // }
+
+  default:
+    return kinderData
+  }
+
+
+}
 
 
 
