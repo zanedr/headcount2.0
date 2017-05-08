@@ -9,9 +9,9 @@
   font-weight: 100;
   font-size: 24px;
   background-color: #000;
-  border-radius: 20px;
+  border-radius: 10px;
   color: #fff;
-  padding: 5px;
+  padding: 10px;
 }
 
 .comparision-cards{
@@ -22,9 +22,9 @@
 
 .comparison-cards-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 900px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-weight: 200;
 }
 
@@ -34,8 +34,8 @@
 
 .compare-info-container{
   display: flex;
-  justify-content: space-between;
-  width: 90%;
+  justify-content: space-around;
+  width: 80%;
 }
 
 .card-container{
@@ -55,6 +55,12 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  margin-top: 30px;
+  background-color: #000;
+  color:#fff;
+  font-weight: 300;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 input, select{

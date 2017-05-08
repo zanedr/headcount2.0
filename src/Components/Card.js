@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 
 export default class Card extends Component{
 
-  shouldComponentUpdate(nextProps, nextState){
-    return (this.props.active !== nextProps.active  || this.props.average !==nextProps.average)? true:false;
-   }
 
   render(){
 
@@ -18,13 +15,14 @@ export default class Card extends Component{
     onClick={()=>{this.props.handleSelectCard(this.props.info,this.props.location)}}>
       <h5>{this.props.location}</h5>
       <h5>Average:{this.props.average}</h5>
+      <ul>
       {
         Object.keys(this.props.info).map((val,i)=>{
           let color = this.props.info[val]>.5?"blue":'red'
-          
+
           return(
           <li
-          style={{color: color }}
+          style={{backgroundColor: color,  }}
           className="card-data"
           key={i}
           ><div className="card-info-year">{val}</div>
@@ -35,6 +33,7 @@ export default class Card extends Component{
               )
         })
       }
+      </ul>
     </div>
     )
   }

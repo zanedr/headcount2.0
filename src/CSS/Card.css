@@ -7,19 +7,28 @@
   width:240px;
   padding:5px;
   background-color: rgba(245,285,302,.9);
+  align-items: center;
 }
 
 .card h5{
-  font-weight: 400;
-  text-decoration: underline
+  font-weight: 300;
+font-size: 18px;
+}
+
+.card ul {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  border-radius: 10px;
 }
 
 .card li{
   list-style-type: none;
+  padding: 3px;
+  color:#fff;
 }
 
 .card-data{
 display: flex;
 justify-content: space-between;
-width: 80%;
 }
