@@ -4,6 +4,16 @@
   align-items: center;
   background-color: lavender}
 
+.page-title{
+  margin-top: 10px;
+  font-weight: 100;
+  font-size: 24px;
+  background-color: #000;
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px;
+}
+
 .comparision-cards{
   width: 65%;
   display: flex;
@@ -12,9 +22,9 @@
 
 .comparison-cards-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 900px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-weight: 200;
 }
 
@@ -24,8 +34,8 @@
 
 .compare-info-container{
   display: flex;
-  justify-content: space-between;
-  width: 65%;
+  justify-content: space-around;
+  width: 80%;
 }
 
 .card-container{
@@ -45,10 +55,22 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  margin-top: 30px;
+  background-color: #000;
+  color:#fff;
+  font-weight: 300;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+input, select{
+  width:230px;
+  height:35px;
+  margin: 10px 0px;
 }
 
 
-@media (max-width: 500px)  {
+@media (max-width: 550px)  {
   .comparison-cards-container{
     flex-direction: column;
     align-items: center;
