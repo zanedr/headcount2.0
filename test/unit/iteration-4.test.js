@@ -10,16 +10,19 @@ describe('DistrictRepository iteration 0', () =>  {
 
   test('compareDistrictAverages ACADEMY 20 against YUMA SCHOOL DISTRICT 1', () => {
     const result =  { "ACADEMY 20": 0.41, "YUMA SCHOOL DISTRICT 1": 0.91, "compared": 0.451 }
+    
     expect(district.compareDistrictAverages('ACADEMY 20', 'YUMA SCHOOL DISTRICT 1')).toEqual(result);
   });
 
   test('compareDistrictAverages is case insensitive', () => {
     const result =  { "ACADEMY 20": 0.41, "YUMA SCHOOL DISTRICT 1": 0.91, "compared": 0.451 }
+
     expect(district.compareDistrictAverages('ACADeMY 20', 'YUMA ScHOoL DiStRICT 1')).toEqual(result);
   });
 
   test('compareDistrictAverages ACADEMY 20 against Colorado', () => {
     const result = { "ACADEMY 20": 0.41, "COLORADO": 0.53, "compared": 0.774}
+
     expect(district.compareDistrictAverages('ACADEMY 20', 'Colorado')).toEqual(result);
   });
 
