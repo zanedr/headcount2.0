@@ -47,19 +47,18 @@ it('after cards are clicked, it will be added to the state',()=>{
   expect(wrapper.state().selectedCards).toEqual([])
   let Card1 = wrapper.find('.card').first()
   Card1.simulate('click')
-
-   let expectedState = [ { info:
+   let expectedState =  [ { info:
          { '2004': 0.24,
-           '2005': 0.28,
-           '2006': 0.34,
-           '2007': 0.39,
-           '2008': 0.54,
-           '2009': 0.6,
+           '2005': 0.278,
+           '2006': 0.337,
+           '2007': 0.395,
+           '2008': 0.536,
+           '2009': 0.598,
            '2010': 0.64,
-           '2011': 0.67,
-           '2012': 0.69,
-           '2013': 0.7,
-           '2014': 0.74 },
+           '2011': 0.672,
+           '2012': 0.695,
+           '2013': 0.703,
+           '2014': 0.741 },
         location: 'Colorado' } ]
 
 expect(wrapper.state().selectedCards).toEqual(expectedState)
@@ -68,18 +67,18 @@ expect(wrapper.state().selectedCards).toEqual(expectedState)
   let Card2 = wrapper.find('.card').last()
   Card2.simulate('click')
 
-  let newExpectedState =     [ { info:
+  let newExpectedState = [ { info:
          { '2004': 0.24,
-           '2005': 0.28,
-           '2006': 0.34,
-           '2007': 0.39,
-           '2008': 0.54,
-           '2009': 0.6,
+           '2005': 0.278,
+           '2006': 0.337,
+           '2007': 0.395,
+           '2008': 0.536,
+           '2009': 0.598,
            '2010': 0.64,
-           '2011': 0.67,
-           '2012': 0.69,
-           '2013': 0.7,
-           '2014': 0.74 },
+           '2011': 0.672,
+           '2012': 0.695,
+           '2013': 0.703,
+           '2014': 0.741 },
         location: 'Colorado' },
       { info:
          { '2004': 0,
@@ -132,7 +131,7 @@ it('should find the compartive average for the selected cards',()=>{
 
   let expected =  { COLORADO: 0.53,
       'YUMA SCHOOL DISTRICT 1': 0.91,
-      compared: 0.58 }
+      compared: 0.582 }
   expect(wrapper.state().compareDistrictAverages(selectedCard1,selectedCard2)).toEqual(expected)
 
 })
