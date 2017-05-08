@@ -1,17 +1,21 @@
+
 .card{
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  margin: 30px 20px 5px;
+  margin: 5px 5px 5px;
   align-items: flex-start;
-  width:240px;
-  padding:5px;
-  background-color: rgba(245,285,302,.9);
+  width:150px;
+  padding: 5px 5px 20px 5px;
+  background-color: rgba(245,285,160,.9);
 }
 
 .card h5{
+  size:16px;
   font-weight: 400;
-  text-decoration: underline
+  color: #000000;
+  margin-bottom: 5px;
+  text-decoration: underline;
 }
 
 .card li{
@@ -19,7 +23,7 @@
 }
 
 .card-data{
-display: flex;
-justify-content: space-between;
-width: 80%;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }

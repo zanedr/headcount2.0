@@ -13,7 +13,7 @@ class App extends Component {
     super()
     let dataConfig = new DistrictRepository(kinderData)
 
-    this.state= {
+    this.state = {
       data                    : dataConfig.data,
       findByName              : dataConfig.findByName,
       findAllMatches          : dataConfig.findAllMatches,
@@ -37,71 +37,71 @@ class App extends Component {
   }
 
   selectCard(info,location){
-      if(this.state.selectedCards.length==1){
-    if(this.state.selectedCards[0].location==location){
+    if(this.state.selectedCards.length == 1 &&
+       this.state.selectedCards[0].location == location){
       this.setState({selectedCards:[]})
       return
     }
-}
 
     if(this.state.selectedCards.length === 2) {
-
-      let cardOneLocation = this.state.selectedCards[0].location || ''
-      let cardTwoLocation = this.state.selectedCards[1].location || ''
+      let cardOneLocation = this.state.selectedCards[0].location
+      let cardTwoLocation = this.state.selectedCards[1].location
 
       if(location == cardOneLocation){
         this.state.selectedCards.shift()
         this.setState(this.state.selectedCards)
         return
       }
-      else if (location == cardTwoLocation) {
+      else if(location == cardTwoLocation) {
         this.state.selectedCards.pop()
         this.setState(this.state.selectedCards)
         return
       }
     }
-      let tempArr = this.state.selectedCards
-      if (tempArr.length>=2) {
-        tempArr.shift()
-        tempArr.push({info:info,location:location})
-        this.setState({selectedCards:tempArr})
-        }else{
-        tempArr.push({info:info,location:location})
-        this.setState({selectedCards:tempArr})
-      }
+
+    let tempArr = this.state.selectedCards
+
+    if(tempArr.length >= 2) {
+      tempArr.shift()
+      tempArr.push({info:info,location:location})
+      this.setState({selectedCards: tempArr})
+    } else {
+      tempArr.push({info:info,location:location})
+      this.setState({selectedCards: tempArr})
     }
+  }
 
   renderComparision(averageInfo){
     let tempArr = this.state.selectedCards
-    return(
-      <div className="comparison-cards-container">
-      {tempArr.map((info,i)=>{
-          if (i == 1) {
+    return (
+      <div className = "comparison-cards-container">
+      {tempArr.map((info,i) => {
+          if(i == 1) {
             let avg1 = this.state.findAverage(averageInfo.location1)
             let avg2 = this.state.findAverage(averageInfo.location2)
             let totalAvg = this.state.compareDistrictAverages(averageInfo.location1,averageInfo.location2)
 
-            return(
-              <div className ="compare-info-container" >
+            return (
+              <div className = "compare-info-container" >
                 <CompareCard info={averageInfo} avg1={avg1} avg2={avg2} totalAvg={totalAvg}/ >
                 <Card
-                  active = {"blue"}
-                  key={i}
-                  handleSelectCard={this.selectCard.bind(this)}
-                  index={i}
-                  location= {info.location}
-                  info={info.info} />
+                  active = {"#FF0000"}
+                  key = {i}
+                  handleSelectCard = {this.selectCard.bind(this)}
+                  index = {i}
+                  location = {info.location}
+                  info = {info.info} />
               </div>
             )
           }
         return (
             <Card
-            key={i}
-            active = {"blue"}
-            handleSelectCard={this.selectCard.bind(this)}
-            index={i}
-            location= {info.location}
-            info={info.info} />
+            key = {i}
+            active = {"#FF0000"}
+            handleSelectCard = {this.selectCard.bind(this)}
+            index = {i}
+            location = {info.location}
+            info = {info.info} />
             )
           })
         }
@@ -111,7 +111,7 @@ class App extends Component {
 
   searched(input, query) {
     let found = {}
-    if (!input.length && !query) {
+    if(!input.length && !query) {
       found = this.state.data
     }
     else if(!input.length && query) {
@@ -129,11 +129,11 @@ class App extends Component {
     let active;
     let searched = Object.keys(found).map((location,i) => {
 
-      if (this.state.selectedCards[0] && !this.state.selectedCards[1]) {
-        active = this.state.selectedCards[0].location == location ? "blue":"red"
+      if(this.state.selectedCards[0] && !this.state.selectedCards[1]) {
+        active = this.state.selectedCards[0].location == location ? "#FF0000" :   "#1D5442"
       }
-      if (this.state.selectedCards[0] && this.state.selectedCards[1]) {
-        active = this.state.selectedCards[0].location == location || this.state.selectedCards[1].location == location ? "blue":"red"
+      if(this.state.selectedCards[0] && this.state.selectedCards[1]) {
+        active = this.state.selectedCards[0].location == location || this.state.selectedCards[1].location == location ? "#FF0000" : "#1D5442"
       }
         let info = this.state.data[location]
         let average = this.state.findAverage(location)
@@ -154,15 +154,15 @@ class App extends Component {
   renderSelectedCards(averageInfo) {
     let tempArr = this.state.selectedCards
       Object.keys(this.state.data).forEach((obj,i)=>{
-        if (tempArr[0]) {
+        if(tempArr[0]) {
           if(tempArr[0].location.toLowerCase() == obj.toLowerCase()){
             averageInfo.location1=tempArr[0].location
             averageInfo.info1=tempArr[0].info
 
           }
         }
-        if (tempArr[1]) {
-          if (tempArr[1].location.toLowerCase() == obj.toLowerCase()) {
+        if(tempArr[1]) {
+          if(tempArr[1].location.toLowerCase() == obj.toLowerCase()) {
             averageInfo.location2 = tempArr[1].location
             averageInfo.info2 = tempArr[1].info
           }
@@ -177,17 +177,17 @@ class App extends Component {
 
     return (
       <main className="main-container">
-        <div className="page-title">Welcome To Headcount 2.0</div>
+        <div className="page-title">Headcount 2.0</div>
 
         {this.renderComparision(averageInfo)}
 
-        <input placeholder="Search" onChange={(e) => {
+        <input className="search-input" placeholder="Search" onChange={(e) => {
           this.state.query = e.target.value
           this.state.findAllMatchesResults = this.state.findAllMatches(e.target.value)
           this.setState(this.state.findAllMatchesResults)
         }}/>
 
-        <OptionsList selectDataSource={this.selectDataSource.bind(this)}/>
+        <OptionsList className="data-selection" selectDataSource={this.selectDataSource.bind(this)}/>
 
           <div className="card-container">
         {
