@@ -15,11 +15,11 @@ import avgRaceWriting from '../data/average_race_ethnicity_writing_scores.js'
 import highschoolGradRate from '../data/high_school_graduation_rates.js'
 
 // import medianHouseIncome from '../data/median_household_income.js'
-
-import onlineEnroll      from '../data/online_pupil_enrollment.js'
-
-import enrollByRace  from '../data/pupil_enrollment_by_race_ethnicity.js'
 //
+// import onlineEnroll      from '../data/online_pupil_enrollment.js'
+//
+// import enrollByRace  from '../data/pupil_enrollment_by_race_ethnicity.js'
+// //
 // import enroll      from '../data/pupil_enrollment.js'
 
 import remediationHigh from '../data/remediation_in_higher_education.js'
@@ -71,14 +71,14 @@ function dataSource(input){
       // case 'Median house income':{
       //   return medianHouseIncome
       // }
-
-      case 'Online student enrollment':{
-        return onlineEnroll
-      }
-
-      case 'Enrollment by race':{
-        return enrollByRace
-      }
+      // 
+      // case 'Online student enrollment':{
+      //   return onlineEnroll
+      // }
+      //
+      // case 'Enrollment by race':{
+      //   return enrollByRace
+      // }
 
 
 

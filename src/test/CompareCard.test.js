@@ -11,10 +11,11 @@ it('renders without crashing', () => {
   avg1={1} avg2={1} totalAvg={{}} />, div);
 });
 
-const wrapper = shallow(<CompareCard info={{location1:"Denver",location2:"Yuma"}}
-avg1={1} avg2={1} totalAvg={{}} />)
+
 
 it('should have a class',()=>{
+  const wrapper = shallow(<CompareCard info={{location1:"Denver",location2:"Yuma"}}
+  avg1={1} avg2={1} totalAvg={{}} />)
   expect(wrapper.is('.card')).toEqual(true);
 })
 

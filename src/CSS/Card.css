@@ -18,8 +18,18 @@
   text-decoration: underline;
 }
 
+.card ul {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
 .card li{
   list-style-type: none;
+  padding: 3px;
+  color:#fff;
+  width: 100%;
 }
 
 .card-data{

@@ -3,34 +3,36 @@ import PropTypes from 'prop-types';
 
 export default class Card extends Component{
   render(){
-    let active =  this.props.active ? this.props.active: "#1D5442"
 
-    return(
-      <div className="card"
-        style={{border: active+ ` 4px solid` }}
-        onClick={()=>{this.props.handleSelectCard(this.props.info,this.props.location)}}>
+    let active =  this.props.active?this.props.active:"#1D5442"
 
-        <h5>{this.props.location}</h5>
-        <h5>Average:{this.props.average}</h5>
-        {
-          Object.keys(this.props.info).map((val,i)=>{
-            let color = this.props.info[val] > .5 ? "#FF0000" : '#1D5442'
 
-            return(
-              <li
-              style={{color: color }}
-              className="card-data"
-              key={i}
-              >
-                <div className="card-info-year">{val}</div>
-                <div className="card-info">
-                  {this.props.info[val]}
-                </div>
-              </li>
-            )
-          })
-        }
-      </div>
+  return(
+    <div className="card"
+    style = {{border: active+ ` 4px solid` }}
+    onClick={() => {this.props.handleSelectCard(this.props.info,this.props.location)}}>
+      <h5>{this.props.location}</h5>
+      <h5>Average:{this.props.average}</h5>
+      <ul>
+      {
+        Object.keys(this.props.info).map((val,i) => {
+          let color = this.props.info[val] > .5 ? "#FF0000" : "#1D5442"
+
+          return(
+          <li
+          style={{color: color,  }}
+          className="card-data"
+          key={i}
+          ><div className="card-info-year">{val}</div>
+          <div className="card-info">
+          {this.props.info[val]}
+          </div>
+          </li>
+              )
+        })
+      }
+      </ul>
+    </div>
     )
   }
 }
