@@ -45,7 +45,7 @@
   width: 80%;
 }
 
-.card-container{
+.card-container {
   /*background-image: url('./i.jpg');*/
   background-color: #FFFFFF;
   background-size: contain;
@@ -58,7 +58,7 @@
   width: 100%;
 }
 
-.average-compare{
+.average-compare {
   display: flex;
   justify-content: center;
   flex-direction: column;

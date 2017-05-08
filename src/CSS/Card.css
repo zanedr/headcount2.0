@@ -1,5 +1,5 @@
 
-.card{
+.card {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -10,7 +10,7 @@
   background-color: rgba(245,285,160,.9);
 }
 
-.card h5{
+.card h5 {
   size:16px;
   font-weight: 400;
   color: #000000;
@@ -25,14 +25,14 @@
   border-radius: 10px;
 }
 
-.card li{
+.card li {
   list-style-type: none;
   padding: 3px;
   color:#fff;
   width: 100%;
 }
 
-.card-data{
+.card-data {
   display: flex;
   justify-content: space-between;
   width: 80%;
